@@ -8,6 +8,9 @@ let HAPPS = process.env.HAPPS || ""
 
 let apps = HAPPS.split(";")
 
+const CHRON_SHUTDOWN  =  '0 2 * * *'
+const CHRON_STARTUP   =  '0 10 * * *'
+
 function setquantity(quantity:number = 1){
     let i=0
     for(let app of apps){
@@ -39,8 +42,16 @@ function setquantity(quantity:number = 1){
     }
 }
 
-setquantity(1)
+console.log("scheduling shutdown", CHRON_SHUTDOWN)
 
-/*schedule.scheduleJob('0-59 * * * *', function(){
-    console.log("tick")
-})*/
+schedule.scheduleJob(CHRON_SHUTDOWN, function(){
+    setquantity(0)
+})
+
+console.log("scheduling startup", CHRON_STARTUP)
+
+schedule.scheduleJob(CHRON_STARTUP, function(){
+    setquantity(1)
+})
+
+setquantity(1)

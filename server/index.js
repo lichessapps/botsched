@@ -4,6 +4,8 @@ const Heroku = require('heroku-client');
 console.log("scheduler startup");
 let HAPPS = process.env.HAPPS || "";
 let apps = HAPPS.split(";");
+const CHRON_SHUTDOWN = '0 2 * * *';
+const CHRON_STARTUP = '0 10 * * *';
 function setquantity(quantity = 1) {
     let i = 0;
     for (let app of apps) {
@@ -25,10 +27,15 @@ function setquantity(quantity = 1) {
         }, i * 10000);
     }
 }
+console.log("scheduling shutdown", CHRON_SHUTDOWN);
+schedule.scheduleJob(CHRON_SHUTDOWN, function () {
+    setquantity(0);
+});
+console.log("scheduling startup", CHRON_STARTUP);
+schedule.scheduleJob(CHRON_STARTUP, function () {
+    setquantity(1);
+});
 setquantity(1);
-/*schedule.scheduleJob('0-59 * * * *', function(){
-    console.log("tick")
-})*/
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
