@@ -1,4 +1,9 @@
 "use strict";
+var schedule = require('node-schedule');
+console.log("scheduler startup");
+schedule.scheduleJob('0-59 * * * *', function () {
+    console.log("tick");
+});
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
