@@ -4,8 +4,8 @@ const Heroku = require('heroku-client');
 console.log("scheduler startup");
 let HAPPS = process.env.HAPPS || "";
 let apps = HAPPS.split(";");
-const CHRON_SHUTDOWN = '0 2 * * *';
-const CHRON_STARTUP = '0 10 * * *';
+const CHRON_SHUTDOWN = '0 3 * * *';
+const CHRON_STARTUP = '0 11 * * *';
 function setquantity(quantity = 1) {
     let i = 0;
     for (let app of apps) {
