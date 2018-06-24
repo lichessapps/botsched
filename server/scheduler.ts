@@ -8,8 +8,8 @@ let HAPPS = process.env.HAPPS || ""
 
 let apps = HAPPS.split(";")
 
-const CHRON_SHUTDOWN  =  '0 4 * * *'
-const CHRON_STARTUP   =  '0 12 * * *'
+const CHRON_SHUTDOWN  =  '0 7 * * *'
+const CHRON_STARTUP   =  '0 14 * * *'
 
 function setquantity(quantity:number = 1){
     let i=0
