@@ -54,6 +54,7 @@
   },  
   "files": [    
     "server/scheduler.ts",
+    "server/schedulerw.ts",
     "server/index.ts"    
   ]
 }
