@@ -2,7 +2,7 @@ console.log("schedulerw startup")
 
 let HAPPSW = process.env.HAPPSW || ""
 
-let appsw = HAPPS.split(";")
+let appsw = HAPPSW.split(";")
 
 const CHRON_SHUTDOWNW  =  '0 14 * * *'
 const CHRON_STARTUPW   =  '0 7 * * *'
