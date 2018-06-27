@@ -40,7 +40,6 @@ console.log("scheduling startup", CHRON_STARTUP);
 schedule.scheduleJob(CHRON_STARTUP, function () {
     setquantity(1);
 });
-setquantity(1);
 console.log("schedulerw startup");
 let HAPPSW = process.env.HAPPSW || "";
 let appsw = HAPPSW.split(";");
@@ -80,7 +79,6 @@ console.log("scheduling startupw", CHRON_STARTUPW);
 schedule.scheduleJob(CHRON_STARTUPW, function () {
     setquantityw(1);
 });
-setquantityw(1);
 function restart(func, from, to) {
     func(from);
     setTimeout(function () {
@@ -137,8 +135,16 @@ app.get('/rworker', (req, res) => {
     restart(setquantity, 0, 1);
     res.send('restart workers');
 });
+app.get('/sworker', (req, res) => {
+    setquantity(0);
+    res.send('stop workers');
+});
 app.get('/rweb', (req, res) => {
     restart(setquantityw, 0, 1);
-    res.send('restart web');
+    res.send('restart webs');
+});
+app.get('/sweb', (req, res) => {
+    setquantityw(0);
+    res.send('stop webs');
 });
 app.listen(PORT, () => console.log(`lichessapps server listening on ${PORT}`));

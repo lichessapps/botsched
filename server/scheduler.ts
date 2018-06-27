@@ -57,5 +57,3 @@ console.log("scheduling startup", CHRON_STARTUP)
 schedule.scheduleJob(CHRON_STARTUP, function(){
     setquantity(1)
 })
-
-setquantity(1)
