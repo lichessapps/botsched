@@ -4,7 +4,7 @@ let HAPPSW = process.env.HAPPSW || ""
 
 let appsw = HAPPSW.split(";")
 
-const CHRON_SHUTDOWNW  =  '0 14 * * *'
+const CHRON_SHUTDOWNW  =  '58 13 * * *'
 const CHRON_STARTUPW   =  '0 7 * * *'
 
 function setquantityw(quantity:number = 1){
