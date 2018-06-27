@@ -55,6 +55,7 @@
   "files": [    
     "server/scheduler.ts",
     "server/schedulerw.ts",
+    "server/restart.ts",
     "server/index.ts"    
   ]
 }

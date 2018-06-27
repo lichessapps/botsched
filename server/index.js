@@ -81,10 +81,24 @@ schedule.scheduleJob(CHRON_STARTUPW, function () {
     setquantityw(1);
 });
 setquantityw(1);
+function restart(func, from, to) {
+    func(from);
+    setTimeout(function () {
+        func(to);
+    }, 60000);
+}
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
 let PORT = 8080;
 app.use(morgan('combined'));
 app.get('/', (req, res) => res.send('lichessapps home'));
+app.get('/rworker', (req, res) => {
+    restart(setquantity, 0, 1);
+    res.send('restart workers');
+});
+app.get('/rweb', (req, res) => {
+    restart(setquantityw, 0, 1);
+    res.send('restart web');
+});
 app.listen(PORT, () => console.log(`lichessapps server listening on ${PORT}`));
