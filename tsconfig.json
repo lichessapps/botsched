@@ -56,6 +56,7 @@
     "server/scheduler.ts",
     "server/schedulerw.ts",
     "server/restart.ts",
-    "server/index.ts"    
+    "server/index.ts",
+    "server/scheduler2.ts"
   ]
 }
