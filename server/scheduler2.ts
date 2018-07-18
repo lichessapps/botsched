@@ -31,7 +31,7 @@ function setquantity2(quantity:number = 1){
 
                 console.log("\ncreating request", url)
 
-                client.patch(url, {body:{"updates":[{"type":"worker", "quantity": quantity}]}}).
+                client.patch(url, {body:{"updates":[{"type":"web", "quantity": quantity}]}}).
                     then((apps:any) => {
                         console.log("\nresponse for", token, name, "\n")
                         console.log(apps)

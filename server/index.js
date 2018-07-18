@@ -169,7 +169,7 @@ function setquantity2(quantity = 1) {
                 let client = new Heroku({ token: token });
                 let url = '/apps/' + name + "/formation";
                 console.log("\ncreating request", url);
-                client.patch(url, { body: { "updates": [{ "type": "worker", "quantity": quantity }] } }).
+                client.patch(url, { body: { "updates": [{ "type": "web", "quantity": quantity }] } }).
                     then((apps) => {
                     console.log("\nresponse for", token, name, "\n");
                     console.log(apps);
