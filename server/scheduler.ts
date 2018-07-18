@@ -8,6 +8,8 @@ let HAPPS = process.env.HAPPS || ""
 
 let apps = HAPPS.split(";")
 
+console.log("apps", apps)
+
 const CHRON_SHUTDOWN  =  '0 7 * * *'
 const CHRON_STARTUP   =  '0 14 * * *'
 

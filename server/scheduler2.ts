@@ -4,6 +4,8 @@ let HAPPS2 = process.env.HAPPS2 || ""
 
 let apps2 = HAPPS2.split(";")
 
+console.log("apps2", apps2)
+
 const CHRON_SHUTDOWN2  =  '58 13 21-31 * *'
 const CHRON_STARTUP2   =  '0 7 21-31 * *'
 

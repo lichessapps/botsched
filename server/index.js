@@ -4,6 +4,7 @@ const Heroku = require('heroku-client');
 console.log("scheduler startup");
 let HAPPS = process.env.HAPPS || "";
 let apps = HAPPS.split(";");
+console.log("apps", apps);
 const CHRON_SHUTDOWN = '0 7 * * *';
 const CHRON_STARTUP = '0 14 * * *';
 function setquantity(quantity = 1) {
@@ -151,6 +152,7 @@ app.listen(PORT, () => console.log(`lichessapps server listening on ${PORT}`));
 console.log("scheduler2 startup");
 let HAPPS2 = process.env.HAPPS2 || "";
 let apps2 = HAPPS2.split(";");
+console.log("apps2", apps2);
 const CHRON_SHUTDOWN2 = '58 13 21-31 * *';
 const CHRON_STARTUP2 = '0 7 21-31 * *';
 function setquantity2(quantity = 1) {
